@@ -40,6 +40,7 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Space");
             this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             this.TargetPos.z = 0;
             this.Hit = Physics2D.Raycast(transform.position, this.TargetPos - transform.position, this.Distance, this.Mask);
