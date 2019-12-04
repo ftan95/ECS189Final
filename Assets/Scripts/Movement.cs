@@ -97,7 +97,6 @@ public class Movement : MonoBehaviour
 
         var rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
-        //Debug.Log(Input.GetAxis("Horizontal"));
         if (Input.GetButtonDown("D")) 
         {
             Debug.Log("Pressing Right");
@@ -139,8 +138,6 @@ public class Movement : MonoBehaviour
         {
             var position = this.gameObject.transform.position;
             position.x += this.InputDirection * this.Speed * this.ADSREnvelope() * Time.deltaTime;
-            //Debug.Log(this.InputDirection * this.Speed * this.ADSREnvelope() * Time.deltaTime);
-            Debug.Log(this.CurrentPhase);
             this.gameObject.transform.position = position;
         }
 
