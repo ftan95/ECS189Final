@@ -11,6 +11,7 @@ public class LevelSelect : MonoBehaviour
         {
             case "Level 1 Button":
                 SceneManager.LoadScene("SampleScene");
+                Debug.Log("SampleScene");
                 break;
             case "Level 2 Button":
                 SceneManager.LoadScene("Demo");
