@@ -18,6 +18,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // When ESC key is pressed, load level select
+        // Note: Only works when game starts on "LevelSelect" scene
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("LevelSelect");
+        }
     }
 }
