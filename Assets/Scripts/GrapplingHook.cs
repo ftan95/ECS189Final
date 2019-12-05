@@ -13,6 +13,8 @@ public class GrapplingHook : MonoBehaviour
     public float Step = 0.2f;
     private GameObject AimingArrow;
     private GameObject GrappleProjectile;
+    private GameObject CollidedObject;
+    private Vector3 CollisionPoint;
     private bool IsFirstConnectedFrame = true;
     //private GameObject Box;
     //public float LineDistance = 1.0f;
@@ -98,29 +100,39 @@ public class GrapplingHook : MonoBehaviour
             if (this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetConnected())
             {
                 Debug.Log("Making connection");
-                var collidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
-                var collisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
+                this.CollidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
+                this.CollisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
                 this.Joint.enabled = true;
-                this.Joint.connectedBody = collidedObject.GetComponent<Rigidbody2D>();
+                this.Joint.connectedBody = this.CollidedObject.GetComponent<Rigidbody2D>();
 
-                this.Joint.connectedAnchor = collisionPoint - new Vector3(collidedObject.transform.position.x, collidedObject.transform.position.y);
+                this.Joint.connectedAnchor = this.CollisionPoint - new Vector3(this.CollidedObject.transform.position.x, this.CollidedObject.transform.position.y);
                 
                 if(this.IsFirstConnectedFrame)
                 {
-                    this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
+                    this.Joint.distance = Vector2.Distance(this.transform.position, this.CollisionPoint);
                 }
                 //this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
 
                 this.Line.enabled = true;
                 this.Line.SetPosition(0, this.transform.position);
-                this.Line.SetPosition(1, collisionPoint);
-                this.Line.GetComponent<RopeRatio>().GrabPostion = collisionPoint;
+                this.Line.SetPosition(1, this.CollisionPoint);
+                this.Line.GetComponent<RopeRatio>().GrabPostion = this.CollisionPoint;
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(this.GrappleProjectile);
                 IsFirstConnectedFrame = false;
                
             } 
+        }
+
+        // Keep updating the line if the grapple is still 'connected'.
+        if(!IsFirstConnectedFrame)
+        {
+            this.Line.enabled = true;
+            this.Line.SetPosition(0, this.transform.position);
+            this.Line.SetPosition(1, this.CollisionPoint);
+            this.Line.GetComponent<RopeRatio>().GrabPostion = this.CollisionPoint;
         }
 
 
