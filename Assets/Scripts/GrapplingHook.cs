@@ -12,6 +12,7 @@ public class GrapplingHook : MonoBehaviour
     public LayerMask Mask;
     public float Step = 0.2f;
     private GameObject AimingArrow;
+    private GameObject GrappleProjectile;
     //private GameObject Box;
     //public float LineDistance = 1.0f;
 
@@ -42,9 +43,8 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AimingArrow.GetComponent<Aimer>().Fire();
-            Debug.Log("Space");
-            this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            this.GrappleProjectile = AimingArrow.GetComponent<Aimer>().Fire();
+            /*this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             this.TargetPos.z = 0;
             this.Hit = Physics2D.Raycast(transform.position, this.TargetPos - transform.position, this.Distance, this.Mask);
 
@@ -62,7 +62,7 @@ public class GrapplingHook : MonoBehaviour
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
-            }
+            }*/
 
             //if (hitter.collider != null && hitter.collider.gameObject.tag == "Pushable")
             //{
@@ -91,6 +91,29 @@ public class GrapplingHook : MonoBehaviour
             // Enable aiming arrow
             AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
         }
+
+        if(this.GrappleProjectile)
+        {
+            if (this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetConnected())
+            {
+                Debug.Log("Making connection");
+                var collidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
+                this.Joint.enabled = true;
+                this.Joint.connectedBody = collidedObject.GetComponent<Rigidbody2D>();
+                this.Joint.connectedAnchor = collidedObject.transform.position;
+                this.Joint.distance = Vector2.Distance(transform.position, this.Joint.connectedAnchor);
+
+                this.Line.enabled = true;
+                this.Line.SetPosition(0, transform.position);
+                this.Line.SetPosition(1, this.Joint.connectedAnchor);
+                this.Line.GetComponent<RopeRatio>().GrabPostion = this.Joint.connectedAnchor;
+
+                // Disable aiming arrow
+                AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
+               
+            } 
+        }
+
 
     }
 

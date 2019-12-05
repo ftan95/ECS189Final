@@ -105,7 +105,6 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButton("A"))
         {
-            Debug.Log("Getting A");
             this.InputDirection = -1.0f;
             this.GetComponent<SpriteRenderer>().flipX = true;
             

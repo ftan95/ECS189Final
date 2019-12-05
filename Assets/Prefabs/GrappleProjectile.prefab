@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2992407190113230462}
   - component: {fileID: 2992407190113230456}
   - component: {fileID: 6624857414127173345}
+  - component: {fileID: -1267749751988681383}
   m_Layer: 0
   m_Name: GrappleProjectile
   m_TagString: Untagged
@@ -116,3 +117,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &-1267749751988681383
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992407190113230463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 4.6, y: 6.2}
+  m_Direction: 0
