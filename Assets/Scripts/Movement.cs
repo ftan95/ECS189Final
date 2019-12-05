@@ -31,6 +31,9 @@ public class Movement : MonoBehaviour
     private enum Phase { Attack, Decay, Sustain, Release, None};
 
     private Phase CurrentPhase;
+    private bool LeftAndRightPressed = false;
+    private float PrevInputDirection = 0.0f; 
+
 
     void Start()
     {
@@ -44,52 +47,14 @@ public class Movement : MonoBehaviour
 
         var rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
-        if (Input.GetButtonDown("D")) 
-        {
-            this.ResetTimers();
-            this.CurrentPhase = Phase.Attack;
-            this.InputDirection = 1.0f;
-            this.GetComponent<SpriteRenderer>().flipX = false;
-        }
-
-        if (Input.GetButton("D"))  
-        {
-            this.InputDirection = 1.0f;
-            this.GetComponent<SpriteRenderer>().flipX = false;
-        }
-
-        if (Input.GetButtonUp("D"))
-        {
-            this.InputDirection = 1.0f;
-            this.CurrentPhase = Phase.Release;
-        }
-
-        if (Input.GetButtonDown("A"))
-        {
-            this.ResetTimers();
-            this.CurrentPhase = Phase.Attack;
-            this.InputDirection = -1.0f;
-            this.GetComponent<SpriteRenderer>().flipX = true;
-        }
-
-        if (Input.GetButton("A"))
-        {
-            this.InputDirection = -1.0f;
-            this.GetComponent<SpriteRenderer>().flipX = true;
-        }
-
-        if (Input.GetButtonUp("A"))
-        {
-            this.InputDirection = -1.0f;
-            this.CurrentPhase = Phase.Release;
-        }
+        this.ManageLeftAndRightMovement();
 
         if (this.CurrentPhase != Phase.None)
         {
             var position = this.gameObject.transform.position;
             position.x += this.InputDirection * this.Speed * this.ADSREnvelope() * Time.deltaTime;
             this.gameObject.transform.position = position;
-        }
+        } 
 
         
 
@@ -103,6 +68,70 @@ public class Movement : MonoBehaviour
 
     }
 
+    void ManageLeftAndRightMovement()
+    {
+        if (Input.GetButtonDown("D")) 
+        {
+            this.ResetTimers();
+            this.CurrentPhase = Phase.Attack;
+            this.InputDirection = 1.0f;
+            this.PrevInputDirection = 1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+         if (Input.GetButtonDown("A"))
+        {
+            this.ResetTimers();
+            this.CurrentPhase = Phase.Attack;
+            this.InputDirection = -1.0f;
+            this.PrevInputDirection = -1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = true;
+        }
+
+        if (Input.GetButton("D"))  
+        {
+            this.InputDirection = 1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            
+        }
+
+        if (Input.GetButtonUp("D") && !Input.GetButton("A"))
+        {
+            this.InputDirection = 1.0f;
+            this.CurrentPhase = Phase.Release;
+            
+        }
+
+
+        if (Input.GetButton("A"))
+        {
+            Debug.Log("Getting A");
+            this.InputDirection = -1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            
+        }
+
+        if (Input.GetButtonUp("A") && !Input.GetButton("D"))
+        {
+            this.InputDirection = -1.0f;
+            this.CurrentPhase = Phase.Release;
+            
+        }
+
+        if(Input.GetButton("A") && Input.GetButton("D"))
+        {
+            this.InputDirection = this.PrevInputDirection;
+            if (this.InputDirection == 1.0f)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = false;
+            }
+            if (this.InputDirection == -1.0f)
+            {
+                this.GetComponent<SpriteRenderer>().flipX = true;
+            }
+        }
+
+    }
     float ADSREnvelope()
     {
         float velocity = 0.0f;
