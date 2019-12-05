@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Pushable
   - Arrow
+  - Tiles
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - 
   - player
   - chest
-  - 
-  - 
+  - background
+  - tiles
   - 
   - 
   - 
@@ -42,4 +44,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 1474364665
+    locked: 0
+  - name: back_tiles
+    uniqueID: 767278597
+    locked: 0
+  - name: front_tiles
+    uniqueID: 2131238591
     locked: 0
