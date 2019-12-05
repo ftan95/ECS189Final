@@ -49,11 +49,13 @@ public class Movement : MonoBehaviour
             this.ResetTimers();
             this.CurrentPhase = Phase.Attack;
             this.InputDirection = 1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         if (Input.GetButton("D"))  
         {
             this.InputDirection = 1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         if (Input.GetButtonUp("D"))
@@ -67,11 +69,13 @@ public class Movement : MonoBehaviour
             this.ResetTimers();
             this.CurrentPhase = Phase.Attack;
             this.InputDirection = -1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (Input.GetButton("A"))
         {
             this.InputDirection = -1.0f;
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (Input.GetButtonUp("A"))
