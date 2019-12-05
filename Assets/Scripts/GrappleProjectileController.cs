@@ -5,9 +5,10 @@ using UnityEngine;
 public class GrappleProjectileController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float Thrust = 100.0f;
+    [SerializeField] private float Thrust = 100.0f;
     private bool Connected = false;
     private GameObject Hit;
+    private Vector3 HitPoint;
     void Start()
     {
         this.GetComponent<Rigidbody2D>().AddForce(-transform.up * Thrust);
@@ -25,6 +26,7 @@ public class GrappleProjectileController : MonoBehaviour
       {
         this.Connected = true;
         this.Hit = collision.gameObject;
+        this.HitPoint = collision.GetContact(0).point;
       }
     }
     public bool GetConnected ()
@@ -34,6 +36,10 @@ public class GrappleProjectileController : MonoBehaviour
     public GameObject GetHit ()
     {
         return this.Hit;
+    }
+    public Vector3 GetHitPoint ()
+    {
+        return this.HitPoint;
     }
  }
 

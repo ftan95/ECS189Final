@@ -98,15 +98,19 @@ public class GrapplingHook : MonoBehaviour
             {
                 Debug.Log("Making connection");
                 var collidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
+                var collisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
                 this.Joint.enabled = true;
                 this.Joint.connectedBody = collidedObject.GetComponent<Rigidbody2D>();
-                this.Joint.connectedAnchor = collidedObject.transform.position;
-                this.Joint.distance = Vector2.Distance(transform.position, this.Joint.connectedAnchor);
+                //this.Joint.connectedAnchor = collidedObject.transform.position;
+                this.Joint.connectedAnchor = collisionPoint - new Vector3(collidedObject.transform.position.x, collidedObject.transform.position.y);
+                
+                //this.Joint.distance = Vector2.Distance(this.transform.position, this.Joint.connectedAnchor);
+                this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
 
                 this.Line.enabled = true;
-                this.Line.SetPosition(0, transform.position);
-                this.Line.SetPosition(1, this.Joint.connectedAnchor);
-                this.Line.GetComponent<RopeRatio>().GrabPostion = this.Joint.connectedAnchor;
+                this.Line.SetPosition(0, this.transform.position);
+                this.Line.SetPosition(1, collisionPoint);
+                this.Line.GetComponent<RopeRatio>().GrabPostion = collisionPoint;
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
