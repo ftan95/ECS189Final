@@ -18,8 +18,6 @@ public class GrapplingHook : MonoBehaviour
     private Vector3 CollisionPoint;
     private bool IsFirstConnectedFrame = true;
     private bool GrappleIsActive = false;
-    //private GameObject Box;
-    //public float LineDistance = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +31,6 @@ public class GrapplingHook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (this.Joint.distance > 1.0f)
-        //{
-        //    this.Joint.distance -= this.Step;
-        //}
-        //else
-        //{
-        //    this.Line.enabled = false;
-        //    this.Joint.enabled = false;
-        //}
-        //Physics2D.queriesStartInColliders = false;
-        //RaycastHit2D hitter = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, this.Distance, this.Mask);
-
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -86,11 +72,12 @@ public class GrapplingHook : MonoBehaviour
             AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
         }
 
+        // If there is a grapple projectile active in the scene.
         if(this.GrappleProjectile && this.GrappleProjectile.activeInHierarchy)
         {
+            // If the grapple projectile has made a connection.
             if (this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetConnected())
             {
-                Debug.Log("Making connection");
                 this.CollidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
                 this.CollisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
                 this.Joint.enabled = true;
@@ -98,6 +85,7 @@ public class GrapplingHook : MonoBehaviour
 
                 this.Joint.connectedAnchor = this.CollisionPoint - new Vector3(this.CollidedObject.transform.position.x, this.CollidedObject.transform.position.y);
                 
+                // Set rope distance on first connected frame.
                 if(this.IsFirstConnectedFrame)
                 {
                     this.Joint.distance = Vector2.Distance(this.transform.position, this.CollisionPoint) - this.RopeOffset;
