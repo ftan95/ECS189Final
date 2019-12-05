@@ -18,6 +18,7 @@ public class GrapplingHook : MonoBehaviour
     private Vector3 CollisionPoint;
     private bool IsFirstConnectedFrame = true;
     private bool GrappleIsActive = false;
+    private bool ConnectionIsActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,8 @@ public class GrapplingHook : MonoBehaviour
                 // Reset variables
                 this.GrappleIsActive = false;
                 this.IsFirstConnectedFrame = true;
-                Debug.Log("Destroying projectile");
+                this.ConnectionIsActive = false;
+                //Debug.Log("Destroying projectile");
                 Destroy(this.GrappleProjectile);
             }
         }
@@ -100,6 +102,7 @@ public class GrapplingHook : MonoBehaviour
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
                 this.GrappleProjectile.SetActive(false);
                 this.IsFirstConnectedFrame = false;
+                this.ConnectionIsActive = true;
                
             } 
         }
