@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private float ReleaseDuration = 0.25f;
     [SerializeField] private AnimationCurve Release;
+    [SerializeField] private float RopeLengthChangeAmount = 0.1f;
 
     private float AttackTimer;
     private float DecayTimer;
@@ -33,12 +34,14 @@ public class Movement : MonoBehaviour
     private Phase CurrentPhase;
     private bool LeftAndRightPressed = false;
     private float PrevInputDirection = 0.0f; 
+    private GrapplingHook _GrapplingHook;
 
 
     void Start()
     {
         this.CurrentPhase = Phase.None;
         this.DistanceToGround = this.GetComponent<BoxCollider2D>().bounds.extents.y;
+        _GrapplingHook = this.GetComponent<GrapplingHook>();
     }
 
     // Update is called once per frame
@@ -58,11 +61,25 @@ public class Movement : MonoBehaviour
 
         
 
-        if (Input.GetButtonDown("W") && IsGrounded())
+        if (Input.GetButtonDown("W") && IsGrounded() /*&& !_GrapplingHook.GetConnectionIsActive()*/)
         {
             if (rigidBody != null)
             {
                 rigidBody.velocity = new Vector2(rigidBody.velocity.x, 3.0f);
+            }
+        }
+
+        // Retract rope / climb the rope.
+        if (Input.GetButton("W") && _GrapplingHook.GetConnectionIsActive())
+        {
+            _GrapplingHook.ChangeJointDistance(-this.RopeLengthChangeAmount);
+        }
+         // Retract rope / climb the rope.
+        if (Input.GetButton("S") && _GrapplingHook.GetConnectionIsActive())
+        {
+            if(_GrapplingHook.GetJointDistance() + this.RopeLengthChangeAmount <= _GrapplingHook.GetInitialRopeLength())
+            {
+                _GrapplingHook.ChangeJointDistance(this.RopeLengthChangeAmount);
             }
         }
 

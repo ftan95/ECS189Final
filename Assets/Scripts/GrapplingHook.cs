@@ -19,6 +19,7 @@ public class GrapplingHook : MonoBehaviour
     private bool IsFirstConnectedFrame = true;
     private bool GrappleIsActive = false;
     private bool ConnectionIsActive = false;
+    private float InitialRopeLength = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -91,6 +92,7 @@ public class GrapplingHook : MonoBehaviour
                 if(this.IsFirstConnectedFrame)
                 {
                     this.Joint.distance = Vector2.Distance(this.transform.position, this.CollisionPoint) - this.RopeOffset;
+                    this.InitialRopeLength = this.Joint.distance;
                 }
 
                 this.Line.enabled = true;
@@ -121,5 +123,23 @@ public class GrapplingHook : MonoBehaviour
         }
 
 
+    }
+
+    public bool GetConnectionIsActive()
+    {
+        return this.ConnectionIsActive;
+    }
+
+    public void ChangeJointDistance(float distance)
+    {
+        this.Joint.distance += distance;
+    }
+    public float GetJointDistance()
+    {
+        return this.Joint.distance;
+    }
+    public float GetInitialRopeLength()
+    {
+        return this.InitialRopeLength;
     }
 }
