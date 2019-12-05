@@ -16,6 +16,7 @@ public class GrapplingHook : MonoBehaviour
     private GameObject CollidedObject;
     private Vector3 CollisionPoint;
     private bool IsFirstConnectedFrame = true;
+    private bool GrappleIsActive = false;
     //private GameObject Box;
     //public float LineDistance = 1.0f;
 
@@ -46,7 +47,22 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.GrappleProjectile = AimingArrow.GetComponent<Aimer>().Fire();
+            if(!this.GrappleIsActive)
+            {
+                this.GrappleProjectile = AimingArrow.GetComponent<Aimer>().Fire();
+                this.GrappleIsActive = true;
+            }
+
+            if(!this.IsFirstConnectedFrame)
+            {
+                this.Joint.enabled = false;
+                this.Line.enabled = false;
+
+                // Enable aiming arrow
+                AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
+                this.GrappleIsActive = false;
+                this.IsFirstConnectedFrame = true;
+            }
             /*this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             this.TargetPos.z = 0;
             this.Hit = Physics2D.Raycast(transform.position, this.TargetPos - transform.position, this.Distance, this.Mask);
@@ -121,7 +137,7 @@ public class GrapplingHook : MonoBehaviour
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
                 Destroy(this.GrappleProjectile);
-                IsFirstConnectedFrame = false;
+                this.IsFirstConnectedFrame = false;
                
             } 
         }
