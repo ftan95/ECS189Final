@@ -294,6 +294,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 2081576920}
   - {fileID: 1787617250}
   - {fileID: 1598127106}
   m_Father: {fileID: 0}
@@ -432,7 +433,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
@@ -457,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
@@ -560,6 +561,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95f0fedf657be5145b9c9f13383665ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2081576919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081576920}
+  - component: {fileID: 2081576922}
+  - component: {fileID: 2081576921}
+  m_Layer: 5
+  m_Name: Game Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2081576920
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081576919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 523740258}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 818, y: 113.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2081576921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081576919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 266
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Grapple Mailman Simulator 2020
+
+    (This is a joke title I need something
+    else)'
+--- !u!222 &2081576922
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081576919}
+  m_CullTransparentMesh: 0
 --- !u!1001 &440526819470444077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -610,7 +691,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
@@ -635,7 +716,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
