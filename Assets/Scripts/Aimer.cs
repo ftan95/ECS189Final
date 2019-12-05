@@ -24,8 +24,8 @@ public class Aimer : MonoBehaviour {
         this.transform.rotation = Quaternion.Euler (new Vector3(0, 0, this.Angle));
     }
 
-    public void Fire()
-    {
-        var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
-    }
+    //public void Fire()
+    //{
+    //    var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
+    //}
 }

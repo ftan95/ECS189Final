@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
         {
             if (rigidBody != null)
             {
-                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 3.0f);
+                rigidBody.velocity = new Vector2(rigidBody.velocity.x, 6.0f);
             }
         }
 

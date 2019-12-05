@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextLevel : MonoBehaviour
+public class OpenDoor : MonoBehaviour
 {
-    private GameManager Gm;
-    public int Next;
-
+    [SerializeField] GameObject prefab;
     void OnTriggerEnter2D(Collider2D col)
     {
-        this.Gm.LoadNextLevel(Next);
+        this.prefab.SetActive(true);
+        this.GetComponent<BoxCollider2D>().isTrigger = false;
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        this.Gm = FindObjectOfType<GameManager>();
+        
     }
 
     // Update is called once per frame

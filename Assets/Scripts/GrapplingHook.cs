@@ -27,10 +27,10 @@ public class GrapplingHook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (this.Joint.distance > 1.0f)
-        //{
-        //    this.Joint.distance -= this.Step;
-        //}
+        if (this.Joint.distance > 3.0f)
+        {
+            this.Joint.distance -= this.Step;
+        }
         //else
         //{
         //    this.Line.enabled = false;
@@ -42,7 +42,7 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AimingArrow.GetComponent<Aimer>().Fire();
+            //AimingArrow.GetComponent<Aimer>().Fire();
             Debug.Log("Space");
             this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             this.TargetPos.z = 0;
