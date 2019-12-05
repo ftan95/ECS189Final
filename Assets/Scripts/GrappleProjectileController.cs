@@ -37,6 +37,10 @@ public class GrappleProjectileController : MonoBehaviour
         this.Hit = collision.gameObject;
         this.HitPoint = collision.GetContact(0).point;
       }
+      else if (!collision.gameObject.tag.Equals("Player") == true)
+      {
+        Destroy(this.gameObject);
+      }
     }
     public bool GetConnected ()
     {
