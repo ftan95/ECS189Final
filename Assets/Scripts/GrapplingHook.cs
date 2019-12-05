@@ -13,6 +13,7 @@ public class GrapplingHook : MonoBehaviour
     public float Step = 0.2f;
     private GameObject AimingArrow;
     private GameObject GrappleProjectile;
+    private bool IsFirstConnectedFrame = true;
     //private GameObject Box;
     //public float LineDistance = 1.0f;
 
@@ -101,11 +102,14 @@ public class GrapplingHook : MonoBehaviour
                 var collisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
                 this.Joint.enabled = true;
                 this.Joint.connectedBody = collidedObject.GetComponent<Rigidbody2D>();
-                //this.Joint.connectedAnchor = collidedObject.transform.position;
+
                 this.Joint.connectedAnchor = collisionPoint - new Vector3(collidedObject.transform.position.x, collidedObject.transform.position.y);
                 
-                //this.Joint.distance = Vector2.Distance(this.transform.position, this.Joint.connectedAnchor);
-                this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
+                if(this.IsFirstConnectedFrame)
+                {
+                    this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
+                }
+                //this.Joint.distance = Vector2.Distance(this.transform.position, collisionPoint);
 
                 this.Line.enabled = true;
                 this.Line.SetPosition(0, this.transform.position);
@@ -114,6 +118,7 @@ public class GrapplingHook : MonoBehaviour
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
+                IsFirstConnectedFrame = false;
                
             } 
         }
