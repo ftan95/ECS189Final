@@ -42,6 +42,7 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            AimingArrow.GetComponent<Aimer>().Fire();
             Debug.Log("Space");
             this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             this.TargetPos.z = 0;
