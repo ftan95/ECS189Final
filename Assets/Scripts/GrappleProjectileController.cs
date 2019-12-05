@@ -6,9 +6,11 @@ public class GrappleProjectileController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private float Thrust = 100.0f;
+    [SerializeField] private float MaxTimeWithoutCollision = 2.0f;
     private bool Connected = false;
     private GameObject Hit;
     private Vector3 HitPoint;
+    private float TimeWithoutCollision = 0.0f;
     void Start()
     {
         this.GetComponent<Rigidbody2D>().AddForce(-transform.up * Thrust);
@@ -17,7 +19,14 @@ public class GrappleProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!this.Connected)
+        {
+            this.TimeWithoutCollision += Time.deltaTime;
+        }
+        if(TimeWithoutCollision >= MaxTimeWithoutCollision)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnCollisionEnter2D (Collision2D collision) 
