@@ -11,6 +11,7 @@ public class GrapplingHook : MonoBehaviour
     public float Distance = 5.0f;
     public LayerMask Mask;
     public float Step = 0.2f;
+    private GameObject AimingArrow;
     //private GameObject Box;
     //public float LineDistance = 1.0f;
 
@@ -20,6 +21,7 @@ public class GrapplingHook : MonoBehaviour
         this.Joint = GetComponent<DistanceJoint2D>();
         this.Joint.enabled = false;
         this.Line.enabled = false;
+        this.AimingArrow = GameObject.FindGameObjectWithTag("Arrow");
     }
 
     // Update is called once per frame
@@ -56,6 +58,9 @@ public class GrapplingHook : MonoBehaviour
                 this.Line.SetPosition(0, transform.position);
                 this.Line.SetPosition(1, this.Hit.point);
                 this.Line.GetComponent<RopeRatio>().GrabPostion = this.Hit.point;
+
+                // Disable aiming arrow
+                AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
             }
 
             //if (hitter.collider != null && hitter.collider.gameObject.tag == "Pushable")
@@ -81,6 +86,9 @@ public class GrapplingHook : MonoBehaviour
         {
             this.Joint.enabled = false;
             this.Line.enabled = false;
+
+            // Enable aiming arrow
+            AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
         }
 
     }
