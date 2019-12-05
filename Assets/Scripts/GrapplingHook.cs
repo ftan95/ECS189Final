@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrapplingHook : MonoBehaviour
 {
+    [SerializeField] private float RopeOffset = 0.0f;
     public LineRenderer Line; 
     private DistanceJoint2D Joint;
     private Vector3 TargetPos;
@@ -99,7 +100,7 @@ public class GrapplingHook : MonoBehaviour
                 
                 if(this.IsFirstConnectedFrame)
                 {
-                    this.Joint.distance = Vector2.Distance(this.transform.position, this.CollisionPoint);
+                    this.Joint.distance = Vector2.Distance(this.transform.position, this.CollisionPoint) - this.RopeOffset;
                 }
 
                 this.Line.enabled = true;
