@@ -13,7 +13,10 @@ public class LevelSelect : MonoBehaviour
                 SceneManager.LoadScene("SampleScene");
                 break;
             case "Level 2 Button":
-                SceneManager.LoadScene("Demo");
+                SceneManager.LoadScene("ConnectStage");
+                break;
+            case "Level 3 Button":
+                SceneManager.LoadScene("SwingStage");
                 break;
             default:
                 Debug.Log("No matching scene!");
