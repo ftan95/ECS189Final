@@ -433,7 +433,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
@@ -618,7 +618,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 60
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -629,10 +629,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Grapple Mailman Simulator 2020
-
-    (This is a joke title I need something
-    else)'
+  m_Text: Grapple
 --- !u!222 &2081576922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -691,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 440526817751554511, guid: 3cd656a9c29779249b44b43cc9fd41a0,
         type: 3}
