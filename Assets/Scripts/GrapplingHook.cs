@@ -80,7 +80,7 @@ public class GrapplingHook : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            this.Line.SetPosition(0, transform.position);
+            Line.SetPosition(0, transform.position);
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
