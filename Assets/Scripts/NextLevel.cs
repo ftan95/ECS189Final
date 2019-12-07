@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
+    [SerializeField] private float TimeToShowBanner = 3.0f;
+    [SerializeField] private int Next;
+    [SerializeField] private GameObject Banner;
+    private float BannerTimer = 0.0f;
+    private bool LevelComplete = false;
     private GameManager Gm;
-    public int Next;
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        this.Gm.LoadNextLevel(Next);
+        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        Banner.SetActive(true);
+        LevelComplete = true;
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +27,16 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (LevelComplete)
+        {
+            if (BannerTimer >= TimeToShowBanner)
+            {
+                this.Gm.LoadNextLevel(Next);
+            }
+            else
+            {
+                BannerTimer += Time.deltaTime;
+            }
+        }
     }
 }
