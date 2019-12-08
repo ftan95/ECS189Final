@@ -28,4 +28,15 @@ public class Aimer : MonoBehaviour {
     //{
     //    var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
     //}
+    public GameObject Fire()
+    {
+        var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
+        return grappleProjectile;
+    }
+
+    public Transform GetGrappleSpawnPoint()
+    {
+        return GrappleSpawnPoint;
+    }
+
 }
