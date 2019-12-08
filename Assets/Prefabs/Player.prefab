@@ -297,6 +297,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  RopeLengthChangeAmount: 0.1
 --- !u!61 &505172571277254497
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2882d6bacaa40609c6d7a6bf2a966c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RopeOffset: 0
   Line: {fileID: 0}
   Distance: 10
   Mask:

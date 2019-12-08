@@ -8,9 +8,12 @@ public class Aimer : MonoBehaviour {
     private float Angle;
     private Transform GrappleSpawnPoint;
 
-    void Start () 
+    void Start()
     {
-        this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
+        //this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
+        this.GrappleSpawnPoint = this.transform;
+        Debug.Log("Grapple Spawn Point x:" + GrappleSpawnPoint.position.x);
+        Debug.Log("Grapple Spawn Point y:" + GrappleSpawnPoint.position.y);
     }
 
     void Update () {
@@ -25,11 +28,12 @@ public class Aimer : MonoBehaviour {
     }
 
     //public void Fire()
-    //{
+   // {
     //    var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
     //}
     public GameObject Fire()
     {
+       // var grappleProjectile = Instantiate(GrappleProjectilePrefab);
         var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
         return grappleProjectile;
     }

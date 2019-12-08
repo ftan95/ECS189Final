@@ -33,6 +33,7 @@ public class GrappleProjectileController : MonoBehaviour
     {
       if (collision.gameObject.tag.Equals("Grapplable") == true)
       {
+            Debug.Log("hit a treasure chest");
         this.Connected = true;
         this.Hit = collision.gameObject;
         this.HitPoint = collision.GetContact(0).point;

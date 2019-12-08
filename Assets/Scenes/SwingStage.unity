@@ -479,6 +479,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block
       objectReference: {fileID: 0}
+    - target: {fileID: 8880484812483676402, guid: 2df9bf8d996b140b196e10ef593679bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grapplable
+      objectReference: {fileID: 0}
     - target: {fileID: 8880484812483676415, guid: 2df9bf8d996b140b196e10ef593679bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1459,6 +1464,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.30000532
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1379654321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4863300810611390804, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
         type: 3}
       propertyPath: m_Name
@@ -1518,36 +1553,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.30000532
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_Parameters.colorGradient.key0.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1379654321
-      objectReference: {fileID: 0}
-    - target: {fileID: 4863300810611390807, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4863300810611390801, guid: f55470d0452ef4f3fad916a3ae3c7bf3,
         type: 3}
@@ -1746,6 +1751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880484812483676402, guid: 2df9bf8d996b140b196e10ef593679bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grapplable
       objectReference: {fileID: 0}
     - target: {fileID: 8880484812483676415, guid: 2df9bf8d996b140b196e10ef593679bb,
         type: 3}
@@ -2379,16 +2389,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 505172571277254500, guid: a0da57ffb2490478691b95f66c1ffdc2,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1379654321
-      objectReference: {fileID: 0}
-    - target: {fileID: 505172571277254500, guid: a0da57ffb2490478691b95f66c1ffdc2,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 505172571277254510, guid: a0da57ffb2490478691b95f66c1ffdc2,
         type: 3}
       propertyPath: Line
@@ -2413,6 +2413,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaxDistanceOnly
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 505172571277254500, guid: a0da57ffb2490478691b95f66c1ffdc2,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1379654321
+      objectReference: {fileID: 0}
+    - target: {fileID: 505172571277254500, guid: a0da57ffb2490478691b95f66c1ffdc2,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0da57ffb2490478691b95f66c1ffdc2, type: 3}
@@ -2721,6 +2731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Block (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880484812483676402, guid: 2df9bf8d996b140b196e10ef593679bb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Grapplable
       objectReference: {fileID: 0}
     - target: {fileID: 8880484812483676415, guid: 2df9bf8d996b140b196e10ef593679bb,
         type: 3}
