@@ -9,6 +9,7 @@ TagManager:
   - Tiles
   - Background
   - Grapplable
+  - Pullable
   layers:
   - Default
   - TransparentFX
