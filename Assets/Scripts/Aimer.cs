@@ -10,7 +10,9 @@ public class Aimer : MonoBehaviour {
 
     void Start () 
     {
-        this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
+        //this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
+        //TODO: uncomment out above code and delete below code after adding GrappleSpawn child of arrow
+        this.GrappleSpawnPoint = this.transform;
     }
 
     void Update () {
@@ -24,8 +26,14 @@ public class Aimer : MonoBehaviour {
         this.transform.rotation = Quaternion.Euler (new Vector3(0, 0, this.Angle));
     }
 
-    //public void Fire()
-    //{
-    //    var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
-    //}
+    public GameObject Fire()
+    {
+        var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
+        return grappleProjectile;
+    }
+
+    public Transform GetGrappleSpawnPoint()
+    {
+        return GrappleSpawnPoint;
+    }
 }

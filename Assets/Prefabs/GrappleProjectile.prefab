@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2992407190113230462}
   - component: {fileID: 2992407190113230456}
   - component: {fileID: 6624857414127173345}
-  m_Layer: 0
+  - component: {fileID: -1267749751988681383}
+  m_Layer: 11
   m_Name: GrappleProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2131238591
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1c0a8929702e53b4a8885e6eb55a75dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -95,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9e959c10c58c64ab20ba77041052f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Thrust: 700
+  MaxTimeWithoutCollision: 2
 --- !u!50 &6624857414127173345
 Rigidbody2D:
   serializedVersion: 4
@@ -116,3 +119,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &-1267749751988681383
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992407190113230463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 4.6, y: 6.2}
+  m_Direction: 0

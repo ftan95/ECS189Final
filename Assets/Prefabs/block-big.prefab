@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6810455906594391909}
   m_Layer: 9
   m_Name: block-big
-  m_TagString: Untagged
+  m_TagString: Grapplable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
