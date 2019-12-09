@@ -10,9 +10,7 @@ public class Aimer : MonoBehaviour {
 
     void Start () 
     {
-        //this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
-        //TODO: uncomment out above code and delete below code after adding GrappleSpawn child of arrow
-        this.GrappleSpawnPoint = this.transform;
+        this.GrappleSpawnPoint = this.transform.Find("GrappleSpawn");
     }
 
     void Update () {
