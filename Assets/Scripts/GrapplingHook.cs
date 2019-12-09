@@ -7,8 +7,6 @@ public class GrapplingHook : MonoBehaviour
     [SerializeField] private float RopeOffset = 0.0f;
     public LineRenderer Line; 
     private DistanceJoint2D Joint;
-    private Vector3 TargetPos;
-    private RaycastHit2D Hit;
     public float Distance = 5.0f;
     public LayerMask Mask;
     public float Step = 0.2f;
@@ -37,9 +35,6 @@ public class GrapplingHook : MonoBehaviour
         // Press Space to fire grappling hook.
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.TargetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            this.TargetPos.z = 0;
-            this.Hit = Physics2D.Raycast(transform.position, this.TargetPos - transform.position, this.Distance, this.Mask);
             // If player can fire a projectile
             if (!this.GrappleIsActive)
             {
@@ -60,7 +55,6 @@ public class GrapplingHook : MonoBehaviour
                 this.GrappleIsActive = false;
                 this.IsFirstConnectedFrame = true;
                 this.ConnectionIsActive = false;
-                //Debug.Log("Destroying projectile");
                 Destroy(this.GrappleProjectile);
             }
         }
@@ -68,15 +62,6 @@ public class GrapplingHook : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             Line.SetPosition(0, transform.position);
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            this.Joint.enabled = false;
-            this.Line.enabled = false;
-
-            // Enable aiming arrow
-            AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
         }
 
         // If there is a grapple projectile active in the scene.
