@@ -106,8 +106,8 @@ public class GrapplingHook : MonoBehaviour
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
-                this.GrappleProjectile.SetActive(false);
-                //Destroy(this.GrappleProjectile);
+                //this.GrappleProjectile.SetActive(false);
+                Destroy(this.GrappleProjectile);
                 this.IsFirstConnectedFrame = false;
                 this.ConnectionIsActive = true;
                
