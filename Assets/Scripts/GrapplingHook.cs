@@ -55,6 +55,12 @@ public class GrapplingHook : MonoBehaviour
                 this.GrappleIsActive = false;
                 this.IsFirstConnectedFrame = true;
                 this.ConnectionIsActive = false;
+
+                if(this.CollidedObject.tag.Equals("Pullable") && this.CollidedObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
+                {
+                    this.CollidedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                }
+
                 Destroy(this.GrappleProjectile);
             }
         }
@@ -72,6 +78,7 @@ public class GrapplingHook : MonoBehaviour
             {
                 this.CollidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
                 this.CollisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
+                //Debug.Log(this.CollisionPoint);
                 this.Joint.enabled = true;
                 this.Joint.connectedBody = this.CollidedObject.GetComponent<Rigidbody2D>();
 
@@ -86,12 +93,13 @@ public class GrapplingHook : MonoBehaviour
 
                 this.Line.enabled = true;
                 this.Line.SetPosition(0, this.transform.position);
-                this.Line.SetPosition(1, this.CollisionPoint);
+                //this.Line.SetPosition(1, this.CollisionPoint);
+                this.Line.SetPosition(1, this.CollidedObject.transform.position);
                 this.Line.GetComponent<RopeRatio>().GrabPostion = this.CollisionPoint;
 
                 // Disable aiming arrow
                 AimingArrow.GetComponent<SpriteRenderer>().enabled = false;
-                //this.GrappleProjectile.SetActive(false);
+
                 Destroy(this.GrappleProjectile);
                 this.IsFirstConnectedFrame = false;
                 this.ConnectionIsActive = true;
@@ -108,7 +116,8 @@ public class GrapplingHook : MonoBehaviour
         {
             this.Line.enabled = true;
             this.Line.SetPosition(0, this.transform.position);
-            this.Line.SetPosition(1, this.CollisionPoint);
+
+            this.Line.SetPosition(1, this.CollidedObject.transform.position);
             this.Line.GetComponent<RopeRatio>().GrabPostion = this.CollisionPoint;
         }
 

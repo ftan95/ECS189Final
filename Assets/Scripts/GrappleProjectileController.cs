@@ -31,7 +31,7 @@ public class GrappleProjectileController : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D collision) 
     {
-      if (collision.gameObject.tag.Equals("Grapplable") == true)
+      if (collision.gameObject.tag.Equals("Grapplable") == true || collision.gameObject.tag.Equals("Pullable"))
       {
         this.Connected = true;
         this.Hit = collision.gameObject;
@@ -40,6 +40,11 @@ public class GrappleProjectileController : MonoBehaviour
       else if (!collision.gameObject.tag.Equals("Player") == true)
       {
         Destroy(this.gameObject);
+      }
+
+      if(collision.gameObject.tag.Equals("Pullable"))
+      {
+        collision.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
       }
     }
     public bool GetConnected ()
