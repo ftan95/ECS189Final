@@ -9,11 +9,14 @@ public class LevelSelect : MonoBehaviour
     {
         switch (this.gameObject.name)
         {
+            case "New Game Button":
+                SceneManager.LoadScene("Intro");
+                break;
             case "Level 1 Button":
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("SwingStage");
                 break;
             case "Level 2 Button":
-                SceneManager.LoadScene("SwingStage");
+                SceneManager.LoadScene("PullStage");
                 break;
             case "Level 3 Button":
                 SceneManager.LoadScene("ConnectStage");
