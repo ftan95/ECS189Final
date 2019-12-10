@@ -20,10 +20,10 @@ public class LevelSelect : MonoBehaviour
                 SceneManager.LoadScene("SwingStage");
                 break;
             case "Level 3 Button":
-                SceneManager.LoadScene("PullStage");
+                SceneManager.LoadScene("ConnectStage");
                 break;
             case "Level 4 Button":
-                SceneManager.LoadScene("ConnectStage");
+                SceneManager.LoadScene("PullStage");
                 break;
             case "Level 5 Button":
                 SceneManager.LoadScene("ExtremeStage");

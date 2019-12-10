@@ -33,7 +33,7 @@ public class GrapplingHook : MonoBehaviour
     void Update()
     {
         // Press Space to fire grappling hook.
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             // If player can fire a projectile
             if (!this.GrappleIsActive)
@@ -65,7 +65,7 @@ public class GrapplingHook : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButtonDown("Fire1"))
         {
             Line.SetPosition(0, transform.position);
         }

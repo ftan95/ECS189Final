@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToShowBanner: 3
-  Next: 1
+  Next: 2
   Banner: {fileID: 937938354}
 --- !u!61 &1188331530
 BoxCollider2D:
