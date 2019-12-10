@@ -16,11 +16,12 @@ public class Death : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             player.transform.position = this.InitialPosition;
-            //for (int i=0; i < 11; i++)
-            //{
-            //    var position = GameObject.Find("Bridge " + i);
-            //    position.transform.position = this.BlockList[i];
-            //}
+            GameObject.Find("Bridge 1").transform.position = this.BlockPosition;
+            for (int i = 1; i < 11; i++)
+            {
+                GameObject.Find("Bridge " + i).transform.position = this.BlockPosition;
+                GameObject.Find("Bridge " + i).GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
 
         }
         
@@ -34,12 +35,13 @@ public class Death : MonoBehaviour
     {
 
         this.InitialPosition = player.transform.position;
-        for (int i = 0; i < 11; i++)
+       // this.BlockPosition = GameObject.Find("Bridge 1").transform.position;
+        for (int i = 1; i < 11; i++)
         {
-            var test = GameObject.Find("Bridge " + i);
-            //Debug.Log("Block position " + test.transform);
-            //this.BlockPosition = test.transform.position;
-            //this.BlockList.Add(this.BlockPosition);
+            var index = "Bridge " + i;
+            Debug.Log(index);
+            this.BlockPosition = GameObject.Find(index).transform.position;
+            this.BlockList.Add(this.BlockPosition);
         }
     }
 
