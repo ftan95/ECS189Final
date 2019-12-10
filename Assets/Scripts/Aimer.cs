@@ -26,7 +26,6 @@ public class Aimer : MonoBehaviour {
 
     public GameObject Fire()
     {
-        Debug.Log(this.GrappleSpawnPoint);
         var grappleProjectile = Instantiate(GrappleProjectilePrefab, this.GrappleSpawnPoint.position, this.transform.localRotation * Quaternion.AngleAxis(90, Vector3.forward));
         return grappleProjectile;
     }
