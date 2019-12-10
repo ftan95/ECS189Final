@@ -8,7 +8,6 @@ public class Death : MonoBehaviour
     private Vector3 InitialPosition;
     private List<Vector3> BlockList = new List<Vector3>();
     private Vector3 BlockPosition;
-    private Vector3 BlockPosition2;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,13 +15,25 @@ public class Death : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             player.transform.position = this.InitialPosition;
-            GameObject.Find("Bridge 1").transform.position = this.BlockPosition;
+            // GameObject.Find("Bridge 1").transform.position = this.BlockPosition;
             for (int i = 1; i < 11; i++)
             {
-                GameObject.Find("Bridge " + i).transform.position = this.BlockPosition;
-                GameObject.Find("Bridge " + i).GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                if (GameObject.Find("Bridge " + i) != null)
+                {
+                    GameObject.Find("Bridge " + i).transform.position = this.BlockPosition;
+                    GameObject.Find("Bridge " + i).GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                }
             }
+            player.GetComponent<DistanceJoint2D>().enabled = false;
+            player.GetComponent<GrapplingHook>().Line.enabled = false;
 
+            //// Enable aiming arrow
+            //AimingArrow.GetComponent<SpriteRenderer>().enabled = true;
+
+            // Reset variables
+            player.GetComponent<GrapplingHook>().GrappleIsActive = false;
+            player.GetComponent<GrapplingHook>().IsFirstConnectedFrame = true;
+            player.GetComponent<GrapplingHook>().ConnectionIsActive = false;
         }
         
         
@@ -39,9 +50,11 @@ public class Death : MonoBehaviour
         for (int i = 1; i < 11; i++)
         {
             var index = "Bridge " + i;
-            Debug.Log(index);
-            this.BlockPosition = GameObject.Find(index).transform.position;
-            this.BlockList.Add(this.BlockPosition);
+            if (GameObject.Find(index) != null)
+            {
+                this.BlockPosition = GameObject.Find(index).transform.position;
+                this.BlockList.Add(this.BlockPosition);
+            }
         }
     }
 

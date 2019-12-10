@@ -31,7 +31,7 @@ public class GrappleProjectileController : MonoBehaviour
 
     void OnCollisionEnter2D (Collision2D collision) 
     {
-      FindObjectOfType<AudioManager>().Play("Connect");  
+      // FindObjectOfType<AudioManager>().Play("Connect");  
       if (collision.gameObject.tag.Equals("Grapplable") == true || collision.gameObject.tag.Equals("Pullable"))
       {
         this.Connected = true;

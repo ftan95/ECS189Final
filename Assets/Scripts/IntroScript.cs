@@ -58,7 +58,7 @@ public class IntroScript : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("SwingStage");
+                SceneManager.LoadScene("SampleScene");
             }
         }
         
