@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     private GrapplingHook _GrapplingHook;
 
     //TODO: uncomment and fix behavior for animation
-   // public Animator animator;
+    public Animator animator;
 
 
     void Start()
@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // animator.SetFloat("Speed", Mathf.Abs(InputDirection));
+        animator.SetFloat("Speed", Mathf.Abs(InputDirection));
 
         var rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
@@ -97,7 +97,7 @@ public class Movement : MonoBehaviour
             this.CurrentPhase = Phase.Attack;
             this.InputDirection = 1.0f;
             this.PrevInputDirection = 1.0f;
-            //this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
+            this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
             this.GetComponent<SpriteRenderer>().flipX = false;
         }
 
@@ -107,14 +107,14 @@ public class Movement : MonoBehaviour
             this.CurrentPhase = Phase.Attack;
             this.InputDirection = -1.0f;
             this.PrevInputDirection = -1.0f;
-           // this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
+            this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
             this.GetComponent<SpriteRenderer>().flipX = true;
         }
 
         if (Input.GetButton("D"))  
         {
             this.InputDirection = 1.0f;
-            //this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
+            this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
             this.GetComponent<SpriteRenderer>().flipX = false;
 
         }
@@ -130,7 +130,7 @@ public class Movement : MonoBehaviour
         if (Input.GetButton("A"))
         {
             this.InputDirection = -1.0f;
-            //this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
+            this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
             this.GetComponent<SpriteRenderer>().flipX = true;
 
         }
@@ -147,12 +147,12 @@ public class Movement : MonoBehaviour
             this.InputDirection = this.PrevInputDirection;
             if (this.InputDirection == 1.0f)
             {
-                //this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
+                this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = false;
                 this.GetComponent<SpriteRenderer>().flipX = false;
             }
             if (this.InputDirection == -1.0f)
             {
-                //this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
+                this.transform.Find("Animator").GetComponent<SpriteRenderer>().flipX = true;
                 this.GetComponent<SpriteRenderer>().flipX = true;
             }
         }
