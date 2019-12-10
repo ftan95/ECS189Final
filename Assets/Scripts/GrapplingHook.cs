@@ -57,10 +57,10 @@ public class GrapplingHook : MonoBehaviour
                 this.ConnectionIsActive = false;
                 Debug.Log("Test");
 
-                if(this.CollidedObject.tag.Equals("Pullable") && this.CollidedObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
+                /*if(this.CollidedObject.tag.Equals("Pullable") && this.CollidedObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
                 {
                     this.CollidedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                }
+                }*/
 
                 Destroy(this.GrappleProjectile);
             }
