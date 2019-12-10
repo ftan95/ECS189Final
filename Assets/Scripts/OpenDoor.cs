@@ -9,6 +9,7 @@ public class OpenDoor : MonoBehaviour
     {
         this.prefab.SetActive(true);
         this.GetComponent<BoxCollider2D>().isTrigger = false;
+
     }
     // Start is called before the first frame update
     void Start()

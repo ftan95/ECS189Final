@@ -55,7 +55,6 @@ public class GrapplingHook : MonoBehaviour
                 this.GrappleIsActive = false;
                 this.IsFirstConnectedFrame = true;
                 this.ConnectionIsActive = false;
-                Debug.Log("Test");
 
                 /*if(this.CollidedObject.tag.Equals("Pullable") && this.CollidedObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
                 {

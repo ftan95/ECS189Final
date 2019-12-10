@@ -10,6 +10,7 @@ TagManager:
   - Background
   - Grapplable
   - Pullable
+  - Text
   layers:
   - Default
   - TransparentFX
