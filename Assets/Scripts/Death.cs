@@ -26,6 +26,8 @@ public class Death : MonoBehaviour
         
         
         
+        player.transform.position = this.InitialPosition;
+        FindObjectOfType<AudioManager>().Play("GameOver");
     }
     // Start is called before the first frame update
     void Start()
