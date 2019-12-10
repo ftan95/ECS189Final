@@ -35,7 +35,7 @@ public class Death : MonoBehaviour
         for (int i = 0; i < 11; i++)
         {
             var test = GameObject.Find("Bridge " + i);
-            Debug.Log("Block position " + test.transform);
+            //Debug.Log("Block position " + test.transform);
             //this.BlockPosition = test.transform.position;
             //this.BlockList.Add(this.BlockPosition);
         }
