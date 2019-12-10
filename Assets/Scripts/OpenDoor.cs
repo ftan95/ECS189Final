@@ -7,10 +7,8 @@ public class OpenDoor : MonoBehaviour
     [SerializeField] GameObject prefab;
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("test");
         this.prefab.SetActive(true);
         this.GetComponent<BoxCollider2D>().isTrigger = false;
-
     }
     // Start is called before the first frame update
     void Start()

@@ -5,15 +5,16 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] GameObject player;
+    private Vector3 InitialPosition;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        player.transform.position = new Vector3(-20.1f, -5.3f, 2.82f);
+        player.transform.position = this.InitialPosition;
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.InitialPosition = player.transform.position;
     }
 
     // Update is called once per frame
