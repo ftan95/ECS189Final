@@ -200,6 +200,6 @@ public class Movement : MonoBehaviour
     }
     bool IsGrounded()
     {
-        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.1f);
+        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.5f);
     }
 }
