@@ -11,7 +11,7 @@ public class Death : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {  
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "REALHENRY" || collision.gameObject.name == "Player")
         {
             player.transform.position = this.InitialPosition;
             for (int i = 1; i < 11; i++)
@@ -35,6 +35,11 @@ public class Death : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.player = GameObject.Find("REALHENRY");
+        if (this.player == null)
+        {
+            this.player = GameObject.Find("Player");
+        }
         this.InitialPosition = player.transform.position;
         for (int i = 1; i < 11; i++)
         {
