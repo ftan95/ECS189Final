@@ -14,7 +14,6 @@ public class LevelSelect : MonoBehaviour
                 break;
             case "Level 1 Button":
                 SceneManager.LoadScene("SampleScene");
-                Debug.Log("Not added yet");
                 break;
             case "Level 2 Button":
                 SceneManager.LoadScene("SwingStage");
