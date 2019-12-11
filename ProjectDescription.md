@@ -116,8 +116,10 @@ I added a couple scripts to increase the interactivity of our game. First, I add
 ## Audio
 
 ### Michael Cordero:
-**From the asset store: **
+**Assets Used:**
 https://assetstore.unity.com/packages/audio/music/electronic/8-bit-music-free-136967
+
+**Sound:**
 For the audio, I surfed through the Unity asset store to find background music and soundFX that fit in with the theme of our game. Since the narrative of our story is about a delivery man named Henry, I wanted music that made it feel like the player was going on an epic but also light-hearted adventure. I also wanted the music to be 8-bit because it matches with the visuals of our game. I found the perfect asset from CronAudio and imported those files over to our game. To implement the audio, I created an audio manager script and a sound script to control all of our sounds. The sound script is a struct that takes in name, soundclip, loop, volume, and pitch as its parameters. In the audio manager, I created a list of that struct so the user can input how many sounds they want in the inspector. After that, I made a simple play function that plays the sounds accordingly. Inside the death script and grapple projectile controller script, I called that play function inside OnTrigger2D collider scripts. This allows us to hear soundFX when the player dies or when the player throws out a grapple. For the background music, it plays instantly inside the start function inside the audio manager script.
 
 
