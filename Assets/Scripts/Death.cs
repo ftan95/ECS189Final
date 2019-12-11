@@ -5,10 +5,10 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    private Vector3 InitialPosition;
+    public Vector3 InitialPosition;
     private List<Vector3> BlockList = new List<Vector3>();
     private Vector3 BlockPosition;
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {  
         if (collision.gameObject.name == "Player")

@@ -11,6 +11,7 @@ TagManager:
   - Grapplable
   - Pullable
   - Text
+  - Spikes
   layers:
   - Default
   - TransparentFX
