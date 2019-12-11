@@ -5,8 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private float DistanceToGround = 1.285f;
-    private Vector3 RightSideOfPlayer;
-    private Vector3 LeftSideOfPlayer;
+    private float Width;
+    // Start is called before the first frame update
 
     [SerializeField] private float Speed = 10.0f;
 
@@ -45,9 +45,7 @@ public class Movement : MonoBehaviour
     {
         this.CurrentPhase = Phase.None;
         this.DistanceToGround = this.GetComponent<BoxCollider2D>().bounds.extents.y;
-        var width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
-        this.RightSideOfPlayer = this.transform.position + new Vector3(width, 0, 0);
-        this.LeftSideOfPlayer = this.transform.position - new Vector3(width, 0, 0);
+        this.Width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
         _GrapplingHook = this.GetComponent<GrapplingHook>();
     }
 
@@ -214,6 +212,8 @@ public class Movement : MonoBehaviour
     }
     bool IsGrounded()
     {
-        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(this.RightSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(this.LeftSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f);
+        var rightSideOfPlayer = this.transform.position + new Vector3(this.Width, 0, 0);
+        var leftSideOfPlayer = this.transform.position - new Vector3(this.Width, 0, 0);
+        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(rightSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(leftSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f);
     }
 }
