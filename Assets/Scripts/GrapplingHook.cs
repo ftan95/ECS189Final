@@ -56,11 +56,6 @@ public class GrapplingHook : MonoBehaviour
                 this.IsFirstConnectedFrame = true;
                 this.ConnectionIsActive = false;
 
-                /*if(this.CollidedObject.tag.Equals("Pullable") && this.CollidedObject.GetComponent<Rigidbody2D>().bodyType == RigidbodyType2D.Dynamic)
-                {
-                    this.CollidedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                }*/
-
                 Destroy(this.GrappleProjectile);
             }
         }
@@ -76,12 +71,11 @@ public class GrapplingHook : MonoBehaviour
             // If the grapple projectile has made a connection.
             if (this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetConnected())
             {
+                // Find collided object and connect the joint to it.
                 this.CollidedObject = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHit();
                 this.CollisionPoint = this.GrappleProjectile.GetComponent<GrappleProjectileController>().GetHitPoint();
-                //Debug.Log(this.CollisionPoint);
                 this.Joint.enabled = true;
                 this.Joint.connectedBody = this.CollidedObject.GetComponent<Rigidbody2D>();
-
                 this.Joint.connectedAnchor = this.CollisionPoint - new Vector3(this.CollidedObject.transform.position.x, this.CollidedObject.transform.position.y);
                 
                 // Set rope distance on first connected frame.
@@ -91,6 +85,7 @@ public class GrapplingHook : MonoBehaviour
                     this.InitialRopeLength = this.Joint.distance;
                 }
 
+                // Draw the rope on screen.
                 this.Line.enabled = true;
                 this.Line.SetPosition(0, this.transform.position);
                 //this.Line.SetPosition(1, this.CollisionPoint);

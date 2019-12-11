@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GrappleProjectileController : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private float Thrust = 100.0f;
     [SerializeField] private float MaxTimeWithoutCollision = 2.0f;
     private bool Connected = false;
@@ -19,19 +18,21 @@ public class GrappleProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!this.Connected)
-        {
-            this.TimeWithoutCollision += Time.deltaTime;
-        }
-        if(TimeWithoutCollision >= MaxTimeWithoutCollision)
-        {
-            Destroy(this.gameObject);
-        }
+      // Keep track of despawn time for projectile.
+      if (!this.Connected)
+      {
+        this.TimeWithoutCollision += Time.deltaTime;
+      }
+      if(TimeWithoutCollision >= MaxTimeWithoutCollision)
+      {
+        Destroy(this.gameObject);
+      }
     }
 
     void OnCollisionEnter2D (Collision2D collision) 
     {
       // FindObjectOfType<AudioManager>().Play("Connect");  
+      // Determine whether the object should be connected to.
       if (collision.gameObject.tag.Equals("Grapplable") == true || collision.gameObject.tag.Equals("Pullable"))
       {
         this.Connected = true;
