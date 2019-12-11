@@ -5,7 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private float DistanceToGround = 1.285f;
-    // Start is called before the first frame update
+    private Vector3 RightSideOfPlayer;
+    private Vector3 LeftSideOfPlayer;
 
     [SerializeField] private float Speed = 10.0f;
 
@@ -44,6 +45,9 @@ public class Movement : MonoBehaviour
     {
         this.CurrentPhase = Phase.None;
         this.DistanceToGround = this.GetComponent<BoxCollider2D>().bounds.extents.y;
+        var width = this.GetComponent<BoxCollider2D>().bounds.extents.x;
+        this.RightSideOfPlayer = this.transform.position + new Vector3(width, 0, 0);
+        this.LeftSideOfPlayer = this.transform.position - new Vector3(width, 0, 0);
         _GrapplingHook = this.GetComponent<GrapplingHook>();
     }
 
@@ -210,6 +214,6 @@ public class Movement : MonoBehaviour
     }
     bool IsGrounded()
     {
-        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.5f);
+        return  Physics2D.Raycast(this.transform.position, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(this.RightSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f) || Physics2D.Raycast(this.LeftSideOfPlayer, -Vector2.up, this.DistanceToGround + 0.5f);
     }
 }
