@@ -2134,6 +2134,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7628336739429990605, guid: 9d34b10c4f377704093ae82ccbda469a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3786428455874177030, guid: 9d34b10c4f377704093ae82ccbda469a,
         type: 3}
       propertyPath: m_Layer
@@ -2144,6 +2149,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1085772415184879125, guid: 9d34b10c4f377704093ae82ccbda469a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3654274079187987661, guid: 9d34b10c4f377704093ae82ccbda469a,
         type: 3}
       propertyPath: m_Layer
@@ -2153,16 +2163,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7628336739429990605, guid: 9d34b10c4f377704093ae82ccbda469a,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1085772415184879125, guid: 9d34b10c4f377704093ae82ccbda469a,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d34b10c4f377704093ae82ccbda469a, type: 3}
@@ -3840,7 +3840,7 @@ PrefabInstance:
     - target: {fileID: 505172571277254496, guid: a0da57ffb2490478691b95f66c1ffdc2,
         type: 3}
       propertyPath: Speed
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 505172571277254510, guid: a0da57ffb2490478691b95f66c1ffdc2,
         type: 3}
