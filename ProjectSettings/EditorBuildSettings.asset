@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: be1121cc9de253240abe250017a43119
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -15,18 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/ConnectStage.unity
     guid: 179fd6139b08cc5499b04cfa4ecca33f
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: be1121cc9de253240abe250017a43119
-  - enabled: 0
-    path: Assets/Scenes/Demo.unity
-    guid: c141d24673958bb44b780d361745cca7
-  - enabled: 1
     path: Assets/Scenes/PullStage.unity
     guid: ff5092b9235456649b534d16e033a73d
   - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: 1b213ec4420f8644b9b10721e027e70c
-  - enabled: 1
     path: Assets/Scenes/ExtremeStage.unity
     guid: 1bce89802b3a57546bd78b9f5bc850f2
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 1b213ec4420f8644b9b10721e027e70c
+  - enabled: 0
+    path: Assets/Scenes/Demo.unity
+    guid: c141d24673958bb44b780d361745cca7
   m_configObjects: {}
