@@ -2526,16 +2526,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4494508798574380561, guid: 396cafe3bb0cd674ba35531a97dd71c2,
-        type: 3}
-      propertyPath: m_Name
-      value: tree
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494508798574380561, guid: 396cafe3bb0cd674ba35531a97dd71c2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 4494508798574380575, guid: 396cafe3bb0cd674ba35531a97dd71c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2590,6 +2580,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494508798574380561, guid: 396cafe3bb0cd674ba35531a97dd71c2,
+        type: 3}
+      propertyPath: m_Name
+      value: tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494508798574380561, guid: 396cafe3bb0cd674ba35531a97dd71c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 396cafe3bb0cd674ba35531a97dd71c2, type: 3}
@@ -3147,7 +3147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.1
+  orthographic size: 11.61
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3171,7 +3171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791427463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: -3, z: -10}
+  m_LocalPosition: {x: -20, y: -5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4132,11 +4132,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8491494858791868010, guid: fb70538d6ec2681428f63b0870673a84,
-        type: 3}
-      propertyPath: m_Name
-      value: sign
-      objectReference: {fileID: 0}
     - target: {fileID: 8491494858791868008, guid: fb70538d6ec2681428f63b0870673a84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4201,6 +4196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8491494858791868010, guid: fb70538d6ec2681428f63b0870673a84,
+        type: 3}
+      propertyPath: m_Name
+      value: sign
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb70538d6ec2681428f63b0870673a84, type: 3}
