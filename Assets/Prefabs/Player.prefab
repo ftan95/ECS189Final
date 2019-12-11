@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 505172571277254498}
   - component: {fileID: -3690560836311499256}
   - component: {fileID: 505172571277254510}
+  - component: {fileID: 4324332277675089461}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -386,6 +387,22 @@ MonoBehaviour:
   IsFirstConnectedFrame: 1
   GrappleIsActive: 0
   ConnectionIsActive: 0
+--- !u!114 &4324332277675089461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505172571277254501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09dbe8953f4bf4c3a8ea160dc6e80629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 1
+  BoxMask:
+    serializedVersion: 2
+    m_Bits: 3639
 --- !u!1 &4998800249415852211
 GameObject:
   m_ObjectHideFlags: 0
