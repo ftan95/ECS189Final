@@ -73,6 +73,12 @@ To manipulate these variables and control the animations, I first added an anima
 For this part everyone contributed to various stages. At a certain point in our game development, each person was essentially working on their own stages to test their mechanics or art that they were in charge of.
 I chose the assets packs in the links above because I felt that fit the story that we chose. Our story is purposefully silly and playful, so I chose bright looking sprites and images to reflect that energetic feeling that we wanted our game to have. I did the overall environment art and design for some stages and contributed some to others. For ConnectStage I changed previously white boxes to ‘tiki’ looking boxes to foreshadow the darker look of the next stages. For PullStage I knew I wanted a more ‘jungle-y’ and at first glance a more daunting look than the previous stages. To do this I utilized a darker forest background and added different looking spikes than the previous stages. I played with the layers of each gameObject to determine if a gameObject was to be at the background or foreground. I added things such as trees, mushrooms, and skulls to make the game more lifelike.
 
+### Michael Cordero:
+**Level Design:**
+The idea behind the levels was to introduce to the player the core mechanics of our game. These mechanics are swinging, jumping, pulling, and grappling. When I designed the levels, I tried to make each level focus on one of those core mechanics. In addition to that, I also wanted the levels to be more challenging as the player progressed through our story. The first four levels are exactly like that so that the player can grow accustomed to our mechanics. Then the final level is there for any player that wants to challenge themselves.
+
+**Environment:**
+For the most part, everyone contributed to the environment and moved around game objects in the scene where they see fit. I created the basic foundation for each level. I made the background, platforms, and obstacles and scaled them accordingly. I used the transform in the inspector to evenly spread out platforms, background, spikes, etc. so that their edges would be touching perfectly. I focused on the small details like that to make our levels look clean and crisp.
 
 ## Input
 
@@ -101,14 +107,18 @@ Related: GameManager.cs, NextLevel.cs
 I added changes to our Death.cs script in order to be more generalized. Our Death script utilized an OntriggerEnter function to see if the player hit the spikes. This was hardcoded beforehand for user to input the player variable within the scene and only check if the GameObject’s name was ‘Player’. I later changed this to consider if it was the ‘Player’ box prefab or the ‘Henry’ prefab that was heading for death. When designing PullStage, I completely removed the grass floor from the previous stages and changed them to platforms that were farther apart and only able to be arrived at by effectively using the mechanics of our game rather than just walking or jumping there. Some designs that did not make it to more challenging stages is ‘unlocking’ previously disabled and invisible blocks to be able to swing from. The player would pull the block to a designated area to ‘unlock’ previously disabled and invisible floating blocks to be able to swing over to the far platform.
 I also made a change to the Grappling Hook Projectile within GrapplingHook.cs  to destroy it when hitting a Pullable or Grapplable object rather than disabling.
 
+### Michael Cordero:
+I added a couple scripts to increase the interactivity of our game. First, I added a checkpoint script on the last stage that uses an edge OnTrigger 2D collider that changes the player respawn point when the checkpoint platform is touched. I added this script to two platforms on the final stage where it makes sense intuitively. The original idea was not to have checkpoints in the first place because the level is meant to be very challenging and stressful, but it turned out to be even harder than anticipated. The checkpoints are meant to make the level more forgiving more new players. I also added platform movement scripts to our grapple blocks on the final stage to make them move in a structured way. The intent behind this script was to make the final level more interesting and very challenging.
+
 
 # Sub-Roles
 
 ## Audio
 
-### Michael Cordero
+### Michael Cordero:
 **From the asset store: **
 https://assetstore.unity.com/packages/audio/music/electronic/8-bit-music-free-136967
+For the audio, I surfed through the Unity asset store to find background music and soundFX that fit in with the theme of our game. Since the narrative of our story is about a delivery man named Henry, I wanted music that made it feel like the player was going on an epic but also light-hearted adventure. I also wanted the music to be 8-bit because it matches with the visuals of our game. I found the perfect asset from CronAudio and imported those files over to our game. To implement the audio, I created an audio manager script and a sound script to control all of our sounds. The sound script is a struct that takes in name, soundclip, loop, volume, and pitch as its parameters. In the audio manager, I created a list of that struct so the user can input how many sounds they want in the inspector. After that, I made a simple play function that plays the sounds accordingly. Inside the death script and grapple projectile controller script, I called that play function inside OnTrigger2D collider scripts. This allows us to hear soundFX when the player dies or when the player throws out a grapple. For the background music, it plays instantly inside the start function inside the audio manager script.
 
 
 ## Gameplay Testing
